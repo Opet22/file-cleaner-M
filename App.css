@@ -1,0 +1,309 @@
+/* Wrapper background */
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #e9eef7;
+  padding: 0;
+}
+
+/* Core container */
+.app-container {
+  width: 95%;
+  max-width: 1300px;
+  min-height: 90vh;
+  background: white;
+  border-radius: 16px;
+  border: 3px solid #d0d0d0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-bottom: 80px;
+}
+
+/* Header */
+.header {
+  padding: 24px;
+  font-weight: bold;
+  border-bottom: 2px solid #eee;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Content */
+.content {
+  padding: 40px 60px;
+}
+
+/* Circle scan button */
+.circle {
+  width: 200px;
+  height: 200px;
+  border: 6px solid #3b82f6;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.scan-circle {
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+  user-select: none;
+}
+
+.scan-circle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 18px rgba(59,130,246,0.55);
+}
+
+/* Threat cards */
+.threat-card {
+  background: #f7f7f7;
+  padding: 14px 18px;
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  border-radius: 10px;
+  align-items: center;
+  font-size: 16px;
+  animation: slideIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+/* Warning icon */
+.check {
+  color: #3b82f6;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Bottom Nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  border-top: 2px solid #ddd;
+  padding: 12px 0;
+  z-index: 10;
+}
+
+.nav-item {
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: transform 0.2s, opacity 0.2s;
+  font-size: 15px;
+}
+
+.nav-item.active {
+  opacity: 1;
+  font-weight: bold;
+}
+
+.nav-item:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+/* Mini buttons */
+.mini-btn, .mini-btn-del {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  margin-left: auto;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.mini-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.mini-btn-del {
+  background: #e63946;
+  color: white;
+}
+
+.mini-btn:hover,
+.mini-btn-del:hover {
+  transform: scale(1.1);
+}
+
+/* Page fade */
+.fade-in {
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulse effect */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Slide animation */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .app-container {
+    width: 100%;
+    border-radius: 0;
+  }
+  .content {
+    padding: 20px;
+  }
+}
+/* Settings layout */
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f8f8;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-top: 14px;
+}
+
+.setting-desc {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* Switch button */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 26px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #3b82f6;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+/* ===== THEMES ===== */
+
+.main-wrapper.dark {
+  background: #121212;
+}
+
+.app-container.dark {
+  background: #1e1e1e;
+  border-color: #333;
+  color: #eaeaea;
+}
+
+.app-container.dark .header {
+  border-bottom: 2px solid #333;
+}
+
+.app-container.dark .threat-card {
+  background: #2a2a2a;
+}
+
+.app-container.dark .bottom-nav {
+  background: #222;
+  border-top: 2px solid #444;
+}
+
+.app-container.dark .nav-item {
+  color: #ddd;
+}
+
+.app-container.dark .circle {
+  border-color: #888;
+  color: white;
+}
+
+.main-wrapper.light {
+  background: #e9eef7;
+}
+
+.app-container.light {
+  background: white;
+  color: black;
+}
+.app-container.dark .scan-btn {
+  background: #2563eb;
+}
+
+.app-container.dark .scan-btn:hover {
+  background: #1d4ed8;
+}
+.app-container, .main-wrapper {
+  transition: background 0.3s, color 0.3s;
+}
+/* Text fix for dark mode */
+.app-container.dark h3,
+.app-container.dark strong,
+.app-container.dark span,
+.app-container.dark p {
+  color: #e6e6e6 !important;
+}
+
+/* Description opacity tetap terlihat */
+.app-container.dark .setting-desc {
+  color: #c5c5c5 !important;
+  opacity: 0.8;
+}
+
+/* Bottom nav text fix */
+.app-container.dark .nav-item span {
+  color: #e6e6e6 !important;
+}
